@@ -92,7 +92,6 @@ const init = async _ => {
     })
   })
   fs.readFile('./templates/main.html', 'utf8', async (e, data) => {
-    console.log(output)
     if (e) { console.log(e) }
     const { document } = (new JSDOM(data)).window
     document.getElementById('eMain').innerHTML = output
