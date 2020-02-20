@@ -1,6 +1,9 @@
 const fs = require('fs')
-const HR = require('./lib/classes.js')
 const prompt = require('inquirer').createPromptModule()
+
+const Manager = require('./lib/Manager')
+const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
 
 const init = async _ => {
   let more = false
@@ -62,13 +65,13 @@ const init = async _ => {
     }
     switch (eInput.type) {
       case 'Manager':
-        eList.push(HR.Manager(eInput.name, eInput.id, eInput.email, eInput.extra))
+        eList.push(Manager(eInput.name, eInput.id, eInput.email, eInput.extra))
         break
       case 'Engineer':
-        eList.push(HR.Engineer(eInput.name, eInput.id, eInput.email, eInput.extra))
+        eList.push(Engineer(eInput.name, eInput.id, eInput.email, eInput.extra))
         break
       case 'Intern':
-        eList.push(HR.Intern(eInput.name, eInput.id, eInput.email, eInput.extra))
+        eList.push(Intern(eInput.name, eInput.id, eInput.email, eInput.extra))
         break
     }
     console.log('Employee successfully added!')
